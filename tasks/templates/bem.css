@@ -16,13 +16,44 @@
 	-webkit-font-smoothing:antialiased;
 }
 <% } %>
-<% if (iconsStyles && stylesheet === 'less') { %>/* Mixins */<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+<% if (iconsStyles) { %>
+<% if (stylesheet === 'less') { %>
+/* Mixins */
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 .icon-<%= glyphs[glyphIdx] %> {
 	&:before {
 		content:"\<%= (61696+glyphIdx).toString(16) %>";
 	}
-}<% } %><% } %>
-<% if (iconsStyles) { %>/* Icons */<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+}
+<% } %>
+/* Icons */
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 .icon_<%= glyphs[glyphIdx] %>:before {
 	content:"\<%= (61696+glyphIdx).toString(16) %>";
-}<% } %><% } %>
+}
+.icon_<%= glyphs[glyphIdx] %> {
+	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>");
+}
+<% } %>
+<% } else if (stylesheet === 'styl') { %>
+/* Mixins */
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+.icon_<%= glyphs[glyphIdx] %>:before {
+	content:"\<%= (61696+glyphIdx).toString(16) %>";
+}
+.icon_<%= glyphs[glyphIdx] %> {
+	*zoom: unquote('expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>")');
+}
+<% } %>
+<% } else { %>
+/* Icons */
+<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+.icon_<%= glyphs[glyphIdx] %>:before {
+	content:"\<%= (61696+glyphIdx).toString(16) %>";
+}
+.icon_<%= glyphs[glyphIdx] %> {
+	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>");
+}
+<% } %>
+<% } %>
+<% } %>
