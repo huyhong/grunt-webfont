@@ -41,6 +41,10 @@ exports.webfont = {
 			find(css, 'src:url("icons.eot");'),
 			'First EOT declaration.'
 		);
+
+        // Icon styles should be sorted
+
+
 		test.ok(
 			find(css, 'src:url("icons.eot?#iefix") format("embedded-opentype"),'),
 			'Second EOT declaration.'
