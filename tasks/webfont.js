@@ -183,10 +183,6 @@ module.exports = function(grunt) {
 					return name.replace(/ /g, '-');
 				});
 
-                // Sort glyphs so that the icon mapping is invariant to 
-                // environment/library differences
-                glyphs = glyphs.sort();
-
 				var cssContext = {
 					fontBaseName: fontBaseName,
 					fontName: fontName,
