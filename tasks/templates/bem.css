@@ -32,7 +32,7 @@
 	content:"\<%= (61696+glyphIdx).toString(16) %>";
 }
 .icon_<%= glyphs[glyphIdx] %> {
-	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>");
+	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#x<%= (61696+glyphIdx).toString(16) %>;");
 }
 <% } %>
 <% } else if (stylesheet === 'styl') { %>
@@ -42,7 +42,7 @@
 	content:"\<%= (61696+glyphIdx).toString(16) %>";
 }
 .icon_<%= glyphs[glyphIdx] %> {
-	*zoom: unquote('expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>")');
+	*zoom: unquote('expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#x<%= (61696+glyphIdx).toString(16) %>;")');
 }
 <% } %>
 <% } else { %>
@@ -52,7 +52,7 @@
 	content:"\<%= (61696+glyphIdx).toString(16) %>";
 }
 .icon_<%= glyphs[glyphIdx] %> {
-	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#xf<%= (61696+glyphIdx).toString(16) %>");
+	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#x<%= (61696+glyphIdx).toString(16) %>;");
 }
 <% } %>
 <% } %>
