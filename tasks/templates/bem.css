@@ -19,21 +19,21 @@
 <% if (iconsStyles) { %>
 <% if (stylesheet === 'less') { %>
 /* Mixins */
-<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
+/*<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 .icon-<%= glyphs[glyphIdx] %> {
 	&:before {
 		content:"\<%= (61696+glyphIdx).toString(16) %>";
 	}
 }
-<% } %>
+<% } %> */
 /* Icons */
 <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-.icon_<%= glyphs[glyphIdx] %>:before {
-	content:"\<%= (61696+glyphIdx).toString(16) %>";
-}
 .icon_<%= glyphs[glyphIdx] %> {
-	*zoom: expression(this.runtimeStyle["zoom"] = "1", this.innerHTML = "&#x<%= (61696+glyphIdx).toString(16) %>;");
-}
+	&:before {
+		content:"\<%= (61696+glyphIdx).toString(16) %>";
+	}
+	*zoom: ~"expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x<%= (61696+glyphIdx).toString(16) %>;')";
+}	
 <% } %>
 <% } else if (stylesheet === 'styl') { %>
 /* Mixins */
