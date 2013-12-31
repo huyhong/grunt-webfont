@@ -18,14 +18,6 @@
 <% } %>
 <% if (iconsStyles) { %>
 <% if (stylesheet === 'less') { %>
-/* Mixins */
-/*<% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
-.icon-<%= glyphs[glyphIdx] %> {
-	&:before {
-		content:"\<%= (61696+glyphIdx).toString(16) %>";
-	}
-}
-<% } %> */
 /* Icons */
 <% for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
 .icon_<%= glyphs[glyphIdx] %> {
